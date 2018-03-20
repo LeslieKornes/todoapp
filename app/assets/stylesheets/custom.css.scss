@@ -3,6 +3,10 @@ $navbar-default-bg: #25445c;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar {
+  border-radius: 0;
+}
+
 .center {
   text-align: center;
 }
@@ -11,10 +15,19 @@ $navbar-default-bg: #25445c;
   margin-top: 100px;
   background-image: asset-url('LiliGraphie.jpeg');
   background-size: cover;
-  height: 275px;
+  height: 400px;
   background-position: bottom;
 }
 
-.jumbotron h2, .jumbotron h3 {
+.jumbotron h2 {
+  margin-top: 90px;
+}
+
+.jumbotron h2, .jumbotron h3, h1 {
   color: #25445c;
+}
+
+footer.footer {
+    margin-top: 75px;
+    margin-left: 75px;
 }
