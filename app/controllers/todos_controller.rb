@@ -1,10 +1,6 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: [:edit, :update, :show, :destroy]
 
-  def new
-    @todo = Todo.new
-  end
-
   def create
     @todo = Todo.new(todo_params)
     if @todo.save
@@ -15,10 +11,24 @@ class TodosController < ApplicationController
     end
   end
 
-  def show
+  def destroy
+    @todo.destroy
+    flash[:notice] = "Todo was successfully deleted"
+    redirect_to todos_path
   end
 
   def edit
+  end
+
+  def index
+    @todos = Todo.all
+  end
+
+  def new
+    @todo = Todo.new
+  end
+
+  def show
   end
 
   def update
@@ -28,16 +38,6 @@ class TodosController < ApplicationController
     else
       render 'edit'
     end
-  end
-
-  def index
-    @todos = Todo.all
-  end
-
-  def destroy
-    @todo.destroy
-    flash[:notice] = "Todo was successfully deleted"
-    redirect_to todos_path
   end
 
   private
